@@ -16,7 +16,8 @@ import dbConfigProduction from './config/db.config.production';
     }),
     PropertyModule,
     TypeOrmModule.forRootAsync({
-      useFactory: dbConfig,
+      useFactory:
+        process.env.NODE_ENV === 'production' ? dbConfigProduction : dbConfig,
     }),
   ],
   controllers: [AppController],
