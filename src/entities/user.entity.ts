@@ -34,6 +34,9 @@ export class User {
   @Column({ nullable: true })
   password: string;
 
+  @Column()
+  hashedRefreshToken: string;
+
   // Parent entity reference we use one to many
   @OneToMany(() => Property, (property) => property.user)
   properties: Property[];
