@@ -19,7 +19,7 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
       clientSecret: googleConfiguration.clientSecret,
       callbackURL: googleConfiguration.callbackURL,
       scope: ['email', 'profile'],
-      passReqToCallback: true, // ✅ This requires 'req' as the first param in validate()
+      passReqToCallback: true, 
     } as StrategyOptionsWithRequest);
   }
 
@@ -39,7 +39,6 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
         avatarUrl: profile.photos[0].value,
         password:"",
     });
-
     // return done(null, user);
     return user;
   }
